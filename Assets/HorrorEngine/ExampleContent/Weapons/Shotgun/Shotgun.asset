@@ -25,7 +25,7 @@ MonoBehaviour:
   CharacterAttachment:
     Socket: {fileID: 11400000, guid: 66be86ee20b277041876bdc5d848683a, type: 2}
     Position: {x: 0.0002, y: 0.0004, z: 0.00045}
-    Rotation: {x: 0, y: -90, z: -89.33}
+    Rotation: {x: -0, y: 270, z: 270.66998}
     Scale: {x: 0.01, y: 0.01, z: 0.01}
   AttachOnEquipped: 1
   MoveOutOfInventoryOnEquip: 0
@@ -33,7 +33,7 @@ MonoBehaviour:
   ReloadAnim: {fileID: 11400000, guid: 24c0fafb66b74634ab9a9356ac41cbea, type: 2}
   ReloadDuration: 2
   AmmoItem: {fileID: 11400000, guid: a5398a73af1b8a143a2f4e30e2409b2f, type: 2}
-  MaxAmmo: 3
+  MaxAmmo: 9
   ShotSound: {fileID: 8300000, guid: 8a17fb1bbc5d19c4fac5db28a85acec6, type: 3}
   ReloadSound: {fileID: 8300000, guid: 0a292ca0470eb7842b51de1d070d621d, type: 3}
   NoAmmoSound: {fileID: 8300000, guid: f57a67d44e423fe468406cd1d1f46cee, type: 3}

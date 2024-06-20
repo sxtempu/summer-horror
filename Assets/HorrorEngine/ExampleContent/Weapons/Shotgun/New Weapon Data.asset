@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7231157f02611244cae3f3d4e36a3fae, type: 3}
+  m_Name: New Weapon Data
+  m_EditorClassIdentifier: 
+  UniqueId: 
+  Image: {fileID: 0}
+  ExamineModel: {fileID: 0}
+  Name: 
+  Description: 
+  InventoryAction: 1
+  Flags: 0
+  DropPrefab: {fileID: 0}
+  EquipPrefab: {fileID: 0}
+  Slot: 1
+  CharacterAttachment:
+    Socket: {fileID: 0}
+    Position: {x: 0, y: 0, z: 0}
+    Rotation: {x: 0, y: 0, z: 0}
+    Scale: {x: 1, y: 1, z: 1}
+  AttachOnEquipped: 1
+  MoveOutOfInventoryOnEquip: 0
+  AimingAnim: {fileID: 0}
+  ReloadAnim: {fileID: 0}
+  ReloadDuration: 0

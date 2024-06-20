@@ -6,9 +6,9 @@ namespace HorrorEngine
 {
     public interface IPlayerMovementSettings
     {
-        public float GetFwdRate(PlayerMovement movement);
-        public float GetRightRate(PlayerMovement movement);
-        public void GetRotation(PlayerMovement movement, out float sign, out float rate);
+        float GetFwdRate(PlayerMovement movement);
+        float GetRightRate(PlayerMovement movement);
+        void GetRotation(PlayerMovement movement, out float sign, out float rate);
     }
 
     public class PlayerMovement : MonoBehaviour, IDeactivateWithActor
@@ -49,8 +49,6 @@ namespace HorrorEngine
         public Vector3 IntendedMovement { get; private set; }
         public Vector2 InputAxis => m_InputAxis;
 
-        // --------------------------------------------------------------------
-
         private void Awake()
         {
             m_Input = GetComponent<IPlayerInput>();
@@ -62,8 +60,6 @@ namespace HorrorEngine
             Debug.Assert(m_Settings != null, "Character doesn't have any movement settings component", gameObject);
         }
 
-        // --------------------------------------------------------------------
-
         private void Update()
         {
             if (!m_AnalogRunning)
@@ -71,9 +67,13 @@ namespace HorrorEngine
 
             m_InputAxis = m_Input.GetPrimaryAxis();
 
+            // Check for lock-on input
+            if (m_Input.IsLockOnDown())
+            {
+                // Implement lock-on behavior
+                HandleLockOn();
+            }
         }
-
-        // --------------------------------------------------------------------
 
         private void FixedUpdate()
         {
@@ -84,8 +84,6 @@ namespace HorrorEngine
                 UpdateRotation();
         }
 
-        // --------------------------------------------------------------------
-
         private void UpdateRotation()
         {
             m_Settings.GetRotation(this, out float sign, out float rate);
@@ -93,14 +91,10 @@ namespace HorrorEngine
                 Rotate(sign, rate);
         }
 
-        // --------------------------------------------------------------------
-
         public void Rotate(float dir, float speed)
         {
             m_Rigidbody.MoveRotation(m_Rigidbody.rotation * Quaternion.Euler(Vector3.up * dir * Time.deltaTime * speed));
         }
-
-        // --------------------------------------------------------------------
 
         private void UpdateMovement()
         {
@@ -157,8 +151,6 @@ namespace HorrorEngine
             }
         }
 
-        // --------------------------------------------------------------------
-
         Vector3 GetForwardMovement(out float absFwd)
         {
             float fwd = m_Settings.GetFwdRate(this);
@@ -188,8 +180,6 @@ namespace HorrorEngine
             return transform.forward * Time.deltaTime * speed * Mathf.Sign(fwd);
         }
 
-        // --------------------------------------------------------------------
-
         Vector3 GetRightMovement()
         {
             float right = m_Settings.GetRightRate(this);
@@ -215,17 +205,77 @@ namespace HorrorEngine
             return transform.right * Time.deltaTime * speed * Mathf.Sign(right);
         }
 
-
-        // --------------------------------------------------------------------
-
         void OnDrawGizmos()
         {
             Gizmos.DrawLine(transform.position - transform.right, transform.position + transform.right);
             Gizmos.DrawLine(transform.position - transform.forward, transform.position + transform.forward);
         }
 
-
         public void AddConstrain(MovementConstrain constrain) { Constrain |= constrain; }
         public void RemoveConstrain(MovementConstrain constrain) { Constrain &= ~constrain; }
+
+        // Handle lock-on behavior
+        private void HandleLockOn()
+        {
+            // Find the PlayerStateAiming component
+            var aimingState = GetComponentInParent<PlayerStateAiming>();
+            if (aimingState != null)
+            {
+                // Toggle lock-on state
+                aimingState.ToggleLockOn();
+            }
+        }
+
+        // Constrain movement to strafing
+        public void ConstrainToStrafe()
+        {
+            // Implement strafing logic here
+            // For example, limit the player's movement to only left and right directions
+            Vector3 rightMovement = GetRightMovement();
+            IntendedMovement = rightMovement;
+
+            if (rightMovement != Vector3.zero)
+            {
+                float speed = rightMovement.magnitude;
+                Vector3 prevPos = m_Rigidbody.position;
+                Vector3 newPos = prevPos + rightMovement;
+
+                // Correct the movement to check the ground slope
+                if (m_GroundDetector.Detect(newPos))
+                {
+                    Vector3 dir = (m_GroundDetector.Position - prevPos).normalized;
+                    Vector3 actualMovement = dir * speed;
+                    newPos = prevPos + actualMovement;
+                }
+
+                // Navmesh sliding
+                if (NavMesh.SamplePosition(newPos, out NavMeshHit hit, m_NavMeshCheckDistance, NavMesh.AllAreas))
+                {
+                    Vector3 navMeshNewPos;
+                    if (m_GroundDetector.Detect(hit.position))
+                    {
+                        navMeshNewPos = m_GroundDetector.Position;
+                    }
+                    else
+                    {
+                        navMeshNewPos = hit.position;
+                    }
+
+                    Vector3 dirToNewPos = (newPos - prevPos).normalized;
+                    Vector3 dirToNavMeshNewPos = (navMeshNewPos - prevPos).normalized;
+                    float dot = Vector3.Dot(dirToNewPos, dirToNavMeshNewPos);
+                    if (dot > 0)
+                    {
+                        newPos = prevPos + dirToNavMeshNewPos * Vector3.Distance(newPos, prevPos) * dot;
+                    }
+                    else
+                    {
+                        newPos = prevPos;
+                    }
+                }
+
+                m_Rigidbody.MovePosition(newPos);
+            }
+        }
     }
 }

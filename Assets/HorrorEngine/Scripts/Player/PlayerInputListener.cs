@@ -143,6 +143,12 @@ namespace HorrorEngine
         {
             return m_ChangeAimTargetP.IsDown();
         }
+     
+        public bool IsLockOnDown()
+        {
+        
+            return Input.GetButtonDown("LockOn");
+        }
 
         public void Flush()
         {

@@ -18,11 +18,9 @@ namespace HorrorEngine
 
         public bool IsInSight(Vector3 position)
         {
-            // Check player visibility
             var dist = Mathf.Min(Vector3.Distance(m_SightPoint.position, position), m_MaxDistance);
             var dirToPlayer = (position - m_SightPoint.position).normalized;
 
-            // First throw a ray to check sight blockers in the path and then a sight check with the proper mask (these mask are different)
             Physics.Raycast(new Ray(m_SightPoint.position, dirToPlayer), out RaycastHit blockerHit, dist, m_SightBlockerMask, QueryTriggerInteraction.Ignore);
             if (Physics.Raycast(new Ray(m_SightPoint.position, dirToPlayer), out RaycastHit sightHit, dist, m_TargetMask, QueryTriggerInteraction.Collide))
             {
@@ -39,9 +37,28 @@ namespace HorrorEngine
                 Debug.DrawLine(m_SightPoint.position, m_SightPoint.position + dirToPlayer * dist, Color.magenta);
             }
 
-            
-
             return false;
+        }
+
+        public Transform GetClosestTargetInSight(Transform[] targets)
+        {
+            Transform closestTarget = null;
+            float closestDistance = float.MaxValue;
+
+            foreach (Transform target in targets)
+            {
+                if (target != null && IsInSight(target))
+                {
+                    float distance = Vector3.Distance(transform.position, target.position);
+                    if (distance < closestDistance)
+                    {
+                        closestDistance = distance;
+                        closestTarget = target;
+                    }
+                }
+            }
+
+            return closestTarget;
         }
     }
 }

@@ -76,5 +76,10 @@ namespace HorrorEngine
         {
             Input.ResetInputAxes();
         }
+
+        public bool IsLockOnDown()
+        {
+            return Input.GetButtonDown("LockOn");
+        }
     }
 }
