@@ -1109,6 +1109,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1654157888941685906, guid: fe413e664c5b58449a138841724b4ef8, type: 3}
+      propertyPath: InitialDocuments.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1654157888941685906, guid: fe413e664c5b58449a138841724b4ef8, type: 3}
       propertyPath: InitialInventory.Array.size
       value: 6
       objectReference: {fileID: 0}
@@ -1116,6 +1120,10 @@ PrefabInstance:
       propertyPath: StorageBox.Items.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1654157888941685906, guid: fe413e664c5b58449a138841724b4ef8, type: 3}
+      propertyPath: InitialDocuments.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5a9e662bf15f94e4598aad914c7845a4, type: 2}
     - target: {fileID: 1654157888941685906, guid: fe413e664c5b58449a138841724b4ef8, type: 3}
       propertyPath: InitialInventory.Array.data[0].Item
       value: 
@@ -1169,6 +1177,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1867560057878532604, guid: e7910c91856f0a54386da28f9abf9535, type: 3}
+      propertyPath: m_Id
+      value: b015f2a0-f0f6-4aa9-894e-2ada5455f6cb
+      objectReference: {fileID: 0}
     - target: {fileID: 8221859793100682112, guid: e7910c91856f0a54386da28f9abf9535, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.406887
@@ -1356,6 +1368,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1867560057878532604, guid: e7910c91856f0a54386da28f9abf9535, type: 3}
+      propertyPath: m_Id
+      value: 7f3a0c84-f4b8-46a5-a391-195105fcb033
+      objectReference: {fileID: 0}
     - target: {fileID: 8221859793100682112, guid: e7910c91856f0a54386da28f9abf9535, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.171302
@@ -3076,7 +3092,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 0eea58fc6ad4b0b428d59273bb4ba809, type: 2}
+  m_NavMeshData: {fileID: 0}
   m_BuildHeightMesh: 0
 --- !u!1001 &1593175213
 PrefabInstance:
@@ -3832,7 +3848,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8417212116333672745, guid: 1e34c3460f2c05244b6a39ea1a57a4c5, type: 3}
       propertyPath: fogDensity
-      value: 0.07
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 8417212116333672745, guid: 1e34c3460f2c05244b6a39ea1a57a4c5, type: 3}
       propertyPath: noiseScale
@@ -4291,7 +4307,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 4bf8100240f778a4eb8933ff52ccbfe0, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.486
-  m_Pitch: 1.12
+  m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
