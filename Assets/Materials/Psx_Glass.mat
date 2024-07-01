@@ -21,8 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Psx_Glass
-  m_Shader: {fileID: -6465566751694194690, guid: 805145bdd23e99a449608ba982401acc,
-    type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 805145bdd23e99a449608ba982401acc, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -101,14 +100,14 @@ Material:
     m_Floats:
     - Boolean_193028D2: 1
     - Boolean_3F1A8DAB: 1
-    - Boolean_43476D73: 1
+    - Boolean_43476D73: 0
     - Boolean_7165A49C: 1
     - Boolean_85059BBE: 1
     - Boolean_8BBF99CD: 1
-    - Boolean_D258FF8E: 1
+    - Boolean_D258FF8E: 0
     - DeformMagnitude: 0
     - Vector1_21C41D02: 256
-    - Vector1_6F288C5B: 1
+    - Vector1_6F288C5B: 0.5
     - Vector1_B2CC132F: 4
     - Vector1_B9994903: 11
     - Vector1_E8746023: 16

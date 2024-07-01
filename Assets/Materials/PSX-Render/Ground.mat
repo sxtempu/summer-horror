@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-1232644032862339464
+--- !u!114 &-8743954995312852597
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Roofs_17-256x256
+  m_Name: Ground
   m_Shader: {fileID: -6465566751694194690, guid: 2b3b7d0b179748b449e12721ea4fcfa6, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -37,11 +37,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_4450AB74:
-        m_Texture: {fileID: 2800000, guid: 848895cc3fc4bb342892dfa5208e280a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7b825fe1c4ce3934784b1c4ccde20a3b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: d0b2f58186b69814eb2eb563ee71894c, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -65,7 +65,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: d0b2f58186b69814eb2eb563ee71894c, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -102,12 +102,12 @@ Material:
     - Boolean_3F1A8DAB: 0
     - Boolean_43476D73: 0
     - Boolean_7165A49C: 0
-    - Boolean_85059BBE: 0
+    - Boolean_85059BBE: 1
     - Boolean_8BBF99CD: 1
     - Boolean_D258FF8E: 0
     - DeformMagnitude: 0
     - Vector1_21C41D02: 256
-    - Vector1_6F288C5B: 1
+    - Vector1_6F288C5B: 0.5
     - Vector1_B2CC132F: 16
     - Vector1_B9994903: 11
     - Vector1_E8746023: 16
