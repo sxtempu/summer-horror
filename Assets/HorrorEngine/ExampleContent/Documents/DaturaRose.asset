@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a543205dd590b764295581a5ae2883d4, type: 3}
+  m_Name: DaturaRose
+  m_EditorClassIdentifier: 
+  UniqueId: 22a711554-60a8-4e8d-afeb-6b8faddca459
+  Name: Datura Rose
+  Image: {fileID: 0}
+  ShowImageOnRead: 0
+  ShowPageCount: 1
+  PagesText_DEPRECATED:
+  - 'Thank you for acquiring Retro Horror Template.
+
+
+    Feel free to join the Discord
+    server to participate in the seleccion of new features.'
+  - "This is a document example. \n\nThey sometimes contain useful information like:\n<color=green>You
+    can find the spade key inside the jewel box</color>"
+  - The document will close now
+  Pages:
+  - Text: The Datura Rose is native to Grain Valley. People who ingest it start with
+      feverish symptoms, followed by hallucinations of grotesque monsters.
+    Image: {fileID: 0}
+    ImageCaption: 
+    ChangeColor: 0
+    ImageColor: {r: 1, g: 1, b: 1, a: 1}
+  - Text: <color=red>Even interacting with said plant can cause hallucinations of
+      these monsters.</color>
+    Image: {fileID: 0}
+    ImageCaption: 
+    ChangeColor: 0
+    ImageColor: {r: 1, g: 1, b: 1, a: 1}
+  ShowClip: {fileID: 8300000, guid: 064693e7a6127fa448408ad9424c5081, type: 3}
+  PageClip: {fileID: 8300000, guid: c3849fa0dcaf3cf40b74686dbf1766ee, type: 3}
+  CloseClip: {fileID: 8300000, guid: 757a425d6607890488ecd0baca7d3aad, type: 3}
