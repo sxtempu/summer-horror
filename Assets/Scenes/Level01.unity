@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.13005117, g: 0.1323146, b: 0.13254192, a: 1}
+  m_IndirectSpecularColor: {r: 0.13005146, g: 0.13231444, b: 0.13254195, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3134,7 +3134,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 162adf938ced8c64186c7df15b6e7508, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.495999
+      value: 13.85
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 162adf938ced8c64186c7df15b6e7508, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3187,6 +3187,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 162adf938ced8c64186c7df15b6e7508, type: 3}
       insertIndex: -1
       addedObject: {fileID: 867249423}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 162adf938ced8c64186c7df15b6e7508, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 867249429}
   m_SourcePrefab: {fileID: 100100000, guid: 162adf938ced8c64186c7df15b6e7508, type: 3}
 --- !u!1 &867249422 stripped
 GameObject:
@@ -3220,6 +3223,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 162adf938ced8c64186c7df15b6e7508, type: 3}
   m_PrefabInstance: {fileID: 867249421}
   m_PrefabAsset: {fileID: 0}
+--- !u!208 &867249429
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867249422}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 1.82, y: 6.2500005, z: 1.82}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 6.2500005, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &898721901
 PrefabInstance:
   m_ObjectHideFlags: 0
