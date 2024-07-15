@@ -29,7 +29,7 @@ Material:
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -98,22 +98,22 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Boolean_193028D2: 0
+    - Boolean_193028D2: 1
     - Boolean_3F1A8DAB: 1
     - Boolean_43476D73: 0
     - Boolean_7165A49C: 0
     - Boolean_85059BBE: 1
-    - Boolean_8BBF99CD: 0
+    - Boolean_8BBF99CD: 1
     - Boolean_D258FF8E: 0
     - DeformMagnitude: 0
     - Vector1_21C41D02: 256
     - Vector1_6F288C5B: 0.5
-    - Vector1_B2CC132F: 16
+    - Vector1_B2CC132F: 13.66
     - Vector1_B9994903: 11
-    - Vector1_E8746023: 16
+    - Vector1_E8746023: 17.2
     - _AlphaClip: 0
     - _AlphaToMask: 0
-    - _Alpha_Clipping: 0.37
+    - _Alpha_Clipping: 0.1
     - _Alpha_Multiplier: 1
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
