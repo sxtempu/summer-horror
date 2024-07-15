@@ -7,16 +7,14 @@ namespace HorrorEngine
 {
     public class DoorTransitionMidWayMessage : BaseMessage
     {
-        
     }
+
     public class DoorTransitionEndMessage : BaseMessage
     {
-
     }
 
     public class DoorTransitionController : SingletonBehaviour<DoorTransitionController>
     {
-        
         public GameObject Animation;
 
         [SerializeField] private float m_FadeOutDuration;
@@ -29,30 +27,21 @@ namespace HorrorEngine
 
         private UIFade m_UIFade;
 
-        // --------------------------------------------------------------------
-
         protected override void Awake()
         {
             base.Awake();
             m_AudioSource = GetComponent<AudioSource>();
         }
 
-
-        // --------------------------------------------------------------------
-
         private void Start()
         {
             m_UIFade = UIManager.Get<UIFade>();
         }
 
-        // --------------------------------------------------------------------
-
         public void Trigger(DoorBase door, GameObject user, Func<IEnumerator> transitionRoutine)
         {
             StartCoroutine(StartTransitionRoutine(door, user, transitionRoutine));
         }
-
-        // --------------------------------------------------------------------
 
         private IEnumerator StartTransitionRoutine(DoorBase door, GameObject user, Func<IEnumerator> transitionRoutine)
         {
@@ -69,24 +58,30 @@ namespace HorrorEngine
             {
                 // Door animation
                 DoorAnimation doorAnim = GetDoorAnimInstance(door);
-                doorAnim.gameObject.SetActive(true);
-                Coroutine doorAnimRoutine = StartCoroutine(doorAnim.Play());
-                
-                if (doorAnim.Sound)
-                    m_AudioSource.PlayOneShot(doorAnim.Sound);
+                if (doorAnim != null) // Check if doorAnim is not null
+                {
+                    doorAnim.gameObject.SetActive(true);
+                    Coroutine doorAnimRoutine = StartCoroutine(doorAnim.Play());
 
-                // Fade In (for door animation)
-                yield return m_UIFade.Fade(1f, 0f, 0.25f);
+                    if (doorAnim.Sound)
+                        m_AudioSource.PlayOneShot(doorAnim.Sound);
 
-                // Wait for anim
-                yield return doorAnimRoutine;
+                    // Fade In (for door animation)
+                    yield return m_UIFade.Fade(1f, 0f, 0.25f);
 
-                // Needs to happen before the transitionRoutine since ObjStates are captured here
-                MessageBuffer<DoorTransitionMidWayMessage>.Dispatch(); 
+                    // Wait for anim
+                    yield return doorAnimRoutine;
 
-                yield return StartCoroutine(transitionRoutine?.Invoke());
+                    // Needs to happen before the transitionRoutine since ObjStates are captured here
+                    MessageBuffer<DoorTransitionMidWayMessage>.Dispatch();
 
-                doorAnim.gameObject.SetActive(false);
+                    yield return StartCoroutine(transitionRoutine?.Invoke());
+
+                    if (doorAnim != null) // Check if doorAnim is still not null
+                    {
+                        doorAnim.gameObject.SetActive(false);
+                    }
+                }
             }
             else
             {
@@ -107,13 +102,10 @@ namespace HorrorEngine
             MessageBuffer<DoorTransitionEndMessage>.Dispatch();
         }
 
-       
-        // --------------------------------------------------------------------
-
         private DoorAnimation GetDoorAnimInstance(DoorBase door)
         {
             var doorAnim = door.Animation;
-            if (!doorAnim.gameObject.scene.IsValid()) // Animation is a prefab so it has to be instantiated
+            if (doorAnim != null && !doorAnim.gameObject.scene.IsValid()) // Check if doorAnim is not null and scene is valid
             {
                 if (!m_AnimationInstances.TryGetValue(doorAnim, out DoorAnimation existingAnimInstance))
                 {
@@ -129,10 +121,8 @@ namespace HorrorEngine
                 {
                     return existingAnimInstance;
                 }
-
             }
             return doorAnim; // Animation is not a prefab, it's an existing instance placed in the scene
         }
-
     }
 }
