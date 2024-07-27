@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/HorrorEngine/ExampleContent/Scenes/SampleMainMenu.unity
-    guid: 244f0b785e69f4b4480ac64c30aa42fa
+    path: Assets/Scenes/CultCrossingMenu.unity
+    guid: e032618c3999eba42b93a57baf823b40
   - enabled: 1
     path: Assets/Scenes/Level01.unity
     guid: a2345d74b48f96b49bcbed2e51a878a6
