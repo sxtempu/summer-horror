@@ -45,7 +45,7 @@ PlayerSettings:
   defaultScreenWidth: 1280
   defaultScreenHeight: 720
   defaultScreenWidthWeb: 1280
-  defaultScreenHeightWeb: 960
+  defaultScreenHeightWeb: 720
   m_StereoRenderingPath: 0
   m_ActiveColorSpace: 0
   unsupportedMSAAFallback: 0
@@ -284,7 +284,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: b13f0c3ca3aefea42a0bb7af9888555a, type: 3}
+      m_Icon: {fileID: 2800000, guid: c0cdb82a880642b4ab14ae88e112f4c9, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -618,11 +618,11 @@ PlayerSettings:
   webGLTemplate: APPLICATION:Default
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
-  webGLCompressionFormat: 2
+  webGLCompressionFormat: 1
   webGLWasmArithmeticExceptions: 0
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
-  webGLDecompressionFallback: 0
+  webGLDecompressionFallback: 1
   webGLInitialMemorySize: 32
   webGLMaximumMemorySize: 2048
   webGLMemoryGrowthMode: 2
